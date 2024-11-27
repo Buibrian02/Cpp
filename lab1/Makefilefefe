@@ -2,7 +2,7 @@
 # the implicit rule for linking uses CC as the linker. g++ can be
 # changed to clang++.
 CXX = g++
-CC  = $(CXX)
+CC  = $(CXX) 
 
 # Generate dependencies in *.d files
 DEPFLAGS = -MT $@ -MMD -MP -MF $*.d
@@ -21,7 +21,7 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS =  test_editor test_coding print_argv
+PROGS =   hello
 
 all: $(PROGS)
 
@@ -33,6 +33,7 @@ test: test_coding test_editor
 print_argv: print_argv.o
 test_editor: test_editor.o editor.o
 test_coding: test_coding.o coding.o
+hello: separate_fn.o
 
 # Phony targets
 .PHONY: all test clean distclean
